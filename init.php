@@ -22,18 +22,7 @@ class ElementoSimpleAddon
 
     public function style_enque()
     {
-        // do_action('elementor/editor/before_enqueue_styles');
-
-        // $suffix = Utils::is_script_debug() ? '' : '.min';
-
-        // $direction_suffix = is_rtl() ? '-rtl' : '';
-
-        // wp_register_style(
-        //     'font-awesome',
-        //     ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/font-awesome' . $suffix . '.css',
-        //     [],
-        //     '4.7.0'
-        // );
+       
         wp_register_style('owl-carousel-css', SIMPLE_ADDON_URL . 'assets/owl-slider/owl.carousel.css');
         wp_register_style('owl-carousel-css-green', SIMPLE_ADDON_URL . 'assets/owl-slider/owl.theme.green.min.css');
         wp_register_style('elemento-addons-simple', SIMPLE_ADDON_URL . 'assets/style.css');
