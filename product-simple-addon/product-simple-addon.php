@@ -221,7 +221,7 @@ class elementoProductSimple extends Widget_Base
                     'value' => Scheme_Color::COLOR_1,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -238,7 +238,7 @@ class elementoProductSimple extends Widget_Base
             [
                 'name' => 'border',
                 'label' => __('Border', 'elemento-addons'),
-                'selector' => '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap',
+                'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom',
                 'fields_options' => [
                     'border' => [
                         'default' => 'solid',
@@ -258,6 +258,9 @@ class elementoProductSimple extends Widget_Base
                 ],
             ]
         );
+
+
+
         $this->add_responsive_control(
             'box_border_radius',
             [
@@ -275,7 +278,7 @@ class elementoProductSimple extends Widget_Base
                     'size' => 0,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'border-radius : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'border-radius : {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -297,7 +300,7 @@ class elementoProductSimple extends Widget_Base
                     'size' => 10,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap' => 'padding : 0 {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .ea-simple-product-slider .item' => 'padding : 0 {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -318,7 +321,7 @@ class elementoProductSimple extends Widget_Base
                     'isLinked' => true,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-bottom' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -343,7 +346,7 @@ class elementoProductSimple extends Widget_Base
                 ],
                 'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'align-items: {{VALUE}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-bottom' => 'align-items: {{VALUE}};',
                 ],
                 'toggle' => true,
             ]
@@ -365,7 +368,8 @@ class elementoProductSimple extends Widget_Base
                     'size' => 12,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-outer-wrap.hovered .elemento-product-simple-inner-bottom' => 'padding-top : {{SIZE}}{{UNIT}}!important;',
                 ],
             ]
         );

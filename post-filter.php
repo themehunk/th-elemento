@@ -199,16 +199,19 @@ class Th_Simple_Post_filter
         $productHtml .= $ratingHtml ? '<div class="elemento-addons-rating">' . $ratingHtml . '</div>' : '';
         // add to cart 
         $productHtml .=  $price;
-        $productHtml .=  $addToCart;
+        $productHtml .=  '</div>';
 
+        $productHtml .=  "<div class='elemento-product-simple-inner-bottom'>";
+        $productHtml .=  $addToCart;
         // buttons icon 
         $productHtml .=  "<div class='buttons_'>";
         $productHtml .=  $wishlist_;
         $productHtml .=  $compare_;
         $productHtml .=  "</div>";
         // buttons icon 
+        $productHtml .=  "</div>";
 
-        $productHtml .=  '</div>';
+
         return $productHtml;
     }
     function  elemento_add_tocart($product,  $text)
