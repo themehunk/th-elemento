@@ -341,6 +341,27 @@ class elementoPostSimple extends Widget_Base
                 'separator' => "after"
             ]
         );
+        $this->add_responsive_control(
+            'box_content_spacing',
+            [
+                'label'     => __('Box Content Spacing', 'elemento-addons'),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .elemento-addons-simple-post .elemento-post-content' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Border::get_type(),
             [
