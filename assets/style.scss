@@ -1,4 +1,5 @@
 .ea-simple-product-slider {
+  padding: 10px 0;
   .elemento-owl-slider-common-secript .owl-dots button.owl-dot {
     &:hover span,
     &.active span {
@@ -7,14 +8,22 @@
   }
 
   .owl-stage-outer.stage-hovered {
-    margin: 0px 0px -100px;
-    padding: 0px 0px 100px;
+    margin: -15px 0px -100px;
+    padding: 15px 0px 100px;
   }
+
+  // testing
+  // .owl-stage-outer {
+  //   margin: 0px 0px -100px;
+  //   padding: 0px 0px 100px;
+  // }
+  // testing
 
   .item {
     padding: 0 12px;
   }
   .elemento-product-outer-wrap {
+    position: relative;
     &.hovered {
       .elemento-addons-quickview-simple {
         opacity: 1;
@@ -32,8 +41,20 @@
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
         border-bottom-width: 0px !important;
-        padding-bottom: 0 !important;
       }
+    }
+
+    .elemento-product-simple-inner-wrap {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 5px;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 4px;
+      position: relative;
+      transition: 0.3s all ease;
+      box-shadow: 0 0 15px;
+      color: #4b58ff40;
     }
     .elemento-product-simple-inner-bottom {
       display: flex;
@@ -49,17 +70,37 @@
       width: 100%;
       opacity: 0;
       visibility: hidden;
+      box-shadow: 0 0 15px;
+      color: #4b58ff40;
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 20px;
+        background-color: #f9f9f9;
+        width: 100%;
+        top: -17px;
+        /* box-shadow: 0px 0 1px 1px; */
+        left: 0;
+        /* color: transparent; */
+      }
     }
-    .elemento-product-simple-inner-wrap {
-      display: flex;
-      flex-direction: column;
-      grid-gap: 5px;
-      background: #ffffff;
-      padding: 10px;
-      border-radius: 4px;
-      position: relative;
-      transition: 0.3s all ease;
-    }
+    // testing
+    // .elemento-product-simple-inner-bottom {
+    //   transform: translateY(0);
+    //   opacity: 1;
+    //   visibility: visible;
+    //   border-top: none !important;
+    //   padding-top: 0 !important;
+    //   border-top-left-radius: 0 !important;
+    //   border-top-right-radius: 0 !important;
+    // }
+    // .elemento-product-simple-inner-wrap {
+    //   border-bottom-left-radius: 0 !important;
+    //   border-bottom-right-radius: 0 !important;
+    //   border-bottom-width: 0px !important;
+    // }
+    // testing
 
     .elemento-addons-quickview-simple {
       position: absolute;
@@ -195,6 +236,8 @@
     .elemento-addons-price {
       font-weight: 600;
       line-height: 1;
+      position: relative;
+      z-index: 1;
       del {
         margin-right: 0.5rem;
         color: #878787;

@@ -1,13 +1,19 @@
 @charset "UTF-8";
+.ea-simple-product-slider {
+  padding: 10px 0;
+}
 .ea-simple-product-slider .elemento-owl-slider-common-secript .owl-dots button.owl-dot:hover span, .ea-simple-product-slider .elemento-owl-slider-common-secript .owl-dots button.owl-dot.active span {
   background: #2d59f7;
 }
 .ea-simple-product-slider .owl-stage-outer.stage-hovered {
-  margin: 0px 0px -100px;
-  padding: 0px 0px 100px;
+  margin: -15px 0px -100px;
+  padding: 15px 0px 100px;
 }
 .ea-simple-product-slider .item {
   padding: 0 12px;
+}
+.ea-simple-product-slider .elemento-product-outer-wrap {
+  position: relative;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap.hovered .elemento-addons-quickview-simple {
   opacity: 1;
@@ -25,7 +31,18 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-width: 0px !important;
-  padding-bottom: 0 !important;
+}
+.ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 5px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.3s all ease;
+  box-shadow: 0 0 15px;
+  color: #4b58ff40;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom {
   display: flex;
@@ -41,16 +58,20 @@
   width: 100%;
   opacity: 0;
   visibility: hidden;
+  box-shadow: 0 0 15px;
+  color: #4b58ff40;
 }
-.ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 5px;
-  background: #ffffff;
-  padding: 10px;
-  border-radius: 4px;
-  position: relative;
-  transition: 0.3s all ease;
+.ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom:before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 20px;
+  background-color: #f9f9f9;
+  width: 100%;
+  top: -17px;
+  /* box-shadow: 0px 0 1px 1px; */
+  left: 0;
+  /* color: transparent; */
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple {
   position: absolute;
@@ -181,6 +202,8 @@
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-price {
   font-weight: 600;
   line-height: 1;
+  position: relative;
+  z-index: 1;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-price del {
   margin-right: 0.5rem;

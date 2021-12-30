@@ -203,12 +203,14 @@ class Th_Simple_Post_filter
 
         $productHtml .=  "<div class='elemento-product-simple-inner-bottom'>";
         $productHtml .=  $addToCart;
-        // buttons icon 
-        $productHtml .=  "<div class='buttons_'>";
-        $productHtml .=  $wishlist_;
-        $productHtml .=  $compare_;
-        $productHtml .=  "</div>";
-        // buttons icon 
+        if ($wishlist_ || $compare_) {
+            // buttons icon 
+            $productHtml .=  "<div class='buttons_'>";
+            $productHtml .=  $wishlist_;
+            $productHtml .=  $compare_;
+            $productHtml .=  "</div>";
+            // buttons icon 
+        }
         $productHtml .=  "</div>";
 
 
