@@ -440,7 +440,7 @@ class elementoProductSimple extends Widget_Base
                     'value' => Scheme_Color::COLOR_1,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-simple-inner-wrap:hover,{{WRAPPER}} .elemento-product-simple-inner-bottom:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .elemento-product-outer-wrap:hover .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap:hover .elemento-product-simple-inner-bottom' => 'color: {{VALUE}};',
                 ],
             ]
         );
