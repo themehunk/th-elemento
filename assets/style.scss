@@ -6,7 +6,10 @@
       background: #2d59f7;
     }
   }
-
+  .owl-stage-outer {
+    margin: -15px 0 -15px;
+    padding: 15px 0 15px;
+  }
   .owl-stage-outer.stage-hovered {
     margin: -15px 0px -100px;
     padding: 15px 0px 100px;
@@ -232,6 +235,8 @@
       letter-spacing: 1px;
       text-decoration: none;
       text-align: center;
+      z-index: 1;
+      position: relative;
     }
     .elemento-addons-price {
       font-weight: 600;
