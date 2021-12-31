@@ -404,6 +404,42 @@ class elementoPostSimple extends Widget_Base
                 ],
             ]
         );
+
+
+        $this->start_controls_tabs('post_box_shadow');
+        $this->start_controls_tab(
+            'post_box_shadow_normal',
+            [
+                'label'     => __('Normal', 'elemento-addons'),
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'post_box_',
+                'label' => __('Box Shadow', 'elemento-addons'),
+                'selector' => '{{WRAPPER}} .elemento-post-layout-listGrid .elemento-post-layout-iteme > div',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->start_controls_tab(
+            'post_box_shadow_hover',
+            [
+                'label'     => __('Hover', 'elemento-addons'),
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'post_box__hover',
+                'label' => __('Box Shadow', 'elemento-addons'),
+                'selector' => '{{WRAPPER}} .elemento-post-layout-listGrid .elemento-post-layout-iteme > div:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+
+
         $this->end_controls_section();
     }
     protected function titleStyle()

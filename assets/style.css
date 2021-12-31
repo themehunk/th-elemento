@@ -324,6 +324,9 @@
   width: calc(100% / 2);
   padding: 8px;
 }
+.elemento-addons-simple-post .elemento-post-layout-listGrid .elemento-post-layout-iteme > div {
+  transition: 0.2s all linear;
+}
 .elemento-addons-simple-post .elemento-featured-image {
   display: block;
   height: 200px;
