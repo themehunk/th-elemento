@@ -85,3 +85,5 @@
   }
   $(document).on("click", ".elemento-addons-owl-np-cln", next_previous_clone);
 })(jQuery);
+
+

@@ -9,6 +9,9 @@
     .elemento-post-layout-iteme {
       width: calc(100% / 2);
       padding: 8px;
+      > div {
+        transition: 0.2s all linear;
+      }
     }
   }
   .elemento-featured-image {

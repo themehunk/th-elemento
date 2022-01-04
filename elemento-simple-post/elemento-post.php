@@ -341,6 +341,27 @@ class elementoPostSimple extends Widget_Base
                 'separator' => "after"
             ]
         );
+        $this->add_responsive_control(
+            'box_content_spacing',
+            [
+                'label'     => __('Box Content Spacing', 'elemento-addons'),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .elemento-addons-simple-post .elemento-post-content' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Border::get_type(),
             [
@@ -383,6 +404,42 @@ class elementoPostSimple extends Widget_Base
                 ],
             ]
         );
+
+
+        $this->start_controls_tabs('post_box_shadow');
+        $this->start_controls_tab(
+            'post_box_shadow_normal',
+            [
+                'label'     => __('Normal', 'elemento-addons'),
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'post_box_',
+                'label' => __('Box Shadow', 'elemento-addons'),
+                'selector' => '{{WRAPPER}} .elemento-post-layout-listGrid .elemento-post-layout-iteme > div',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->start_controls_tab(
+            'post_box_shadow_hover',
+            [
+                'label'     => __('Hover', 'elemento-addons'),
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'post_box__hover',
+                'label' => __('Box Shadow', 'elemento-addons'),
+                'selector' => '{{WRAPPER}} .elemento-post-layout-listGrid .elemento-post-layout-iteme > div:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+
+
         $this->end_controls_section();
     }
     protected function titleStyle()

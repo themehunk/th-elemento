@@ -2,6 +2,7 @@
   const elemento = {
     init: function () {
       elemento.bind();
+      elemento.hover_sliderBottom();
     },
     postPagination: function (e) {
       e.preventDefault();
@@ -191,6 +192,38 @@
         }
       }
     },
+
+    hover_sliderBottom: function () {
+      $(document).on(
+        {
+          mouseenter: function () {
+            let element = $(this);
+            element.addClass("hovered");
+            let container = element.closest(".ea-simple-product-slider");
+            container.find(".owl-stage-outer").addClass("stage-hovered");
+          },
+          mouseleave: function () {
+            let element_ = $(this);
+            let container_ = element_.closest(".ea-simple-product-slider");
+
+            element_.removeClass("hovered");
+            container_.find(".owl-stage-outer").removeClass("stage-hovered");
+            // let checkAnotherItem = container_.find("hovered").length;
+            // setTimeout(() => {
+            //   console.log("checkAnotherItem-", checkAnotherItem);
+
+            //   if (!checkAnotherItem) {
+            //     container_
+            //       .find(".owl-stage-outer")
+            //       .removeClass("stage-hovered");
+            //   }
+            // }, 600);
+          },
+        },
+        ".ea-simple-product-slider .elemento-product-outer-wrap"
+      );
+    },
+
     bind: function () {
       $(document).on(
         "click",

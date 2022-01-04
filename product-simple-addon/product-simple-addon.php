@@ -221,7 +221,7 @@ class elementoProductSimple extends Widget_Base
                     'value' => Scheme_Color::COLOR_1,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom,{{WRAPPER}} .elemento-product-simple-inner-bottom:before' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -238,7 +238,7 @@ class elementoProductSimple extends Widget_Base
             [
                 'name' => 'border',
                 'label' => __('Border', 'elemento-addons'),
-                'selector' => '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap',
+                'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom',
                 'fields_options' => [
                     'border' => [
                         'default' => 'solid',
@@ -258,6 +258,9 @@ class elementoProductSimple extends Widget_Base
                 ],
             ]
         );
+
+
+
         $this->add_responsive_control(
             'box_border_radius',
             [
@@ -275,7 +278,7 @@ class elementoProductSimple extends Widget_Base
                     'size' => 0,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'border-radius : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'border-radius : {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -297,7 +300,7 @@ class elementoProductSimple extends Widget_Base
                     'size' => 10,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap' => 'padding : 0 {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .ea-simple-product-slider .item' => 'padding : 0 {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -308,7 +311,7 @@ class elementoProductSimple extends Widget_Base
             [
                 'label' => __('Padding', 'elemento-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px'],
                 'default' => [
                     'top' => 15,
                     'right' => 15,
@@ -318,7 +321,9 @@ class elementoProductSimple extends Widget_Base
                     'isLinked' => true,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-bottom' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+
+                    '{{WRAPPER}} .hovered.elemento-product-outer-wrap .elemento-product-simple-inner-bottom' => 'transform:translateY(-{{BOTTOM}}{{UNIT}})'
                 ],
             ]
         );
@@ -343,7 +348,7 @@ class elementoProductSimple extends Widget_Base
                 ],
                 'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'align-items: {{VALUE}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-bottom' => 'align-items: {{VALUE}};',
                 ],
                 'toggle' => true,
             ]
@@ -365,7 +370,8 @@ class elementoProductSimple extends Widget_Base
                     'size' => 12,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-wrap' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'grid-gap : {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elemento-product-outer-wrap .elemento-product-simple-inner-bottom .elemento-add-to-cart-btn' => 'margin-top : {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -378,15 +384,33 @@ class elementoProductSimple extends Widget_Base
 
             ]
         );
-        $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
+        // $this->add_group_control(
+        //     \Elementor\Group_Control_Box_Shadow::get_type(),
+        //     [
+        //         'name' => 'box_shadow_box',
+        //         'label' => __('Box Shadow', 'elemento-addons'),
+        //         'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom',
+        //         'separator' => "before",
+        //         'exclude' => ['box_shadow_horizontal', 'horizontal'],
+        //     ]
+        // );
+        $this->add_control(
+            'box_shadow_box',
             [
-                'name' => 'box_shadow_box',
-                'label' => __('Box Shadow', 'elemento-addons'),
-                'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap',
-                'separator' => "before",
+                'label'     => __('Box Shadow Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => "#4b58ff40",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-simple-inner-bottom' => 'color: {{VALUE}};',
+                ],
             ]
         );
+
+
         $this->end_controls_tab();
         $this->start_controls_tab(
             'box_tabs_hover',
@@ -395,15 +419,32 @@ class elementoProductSimple extends Widget_Base
             ]
         );
 
-        $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
+        // $this->add_group_control(
+        //     \Elementor\Group_Control_Box_Shadow::get_type(),
+        //     [
+        //         'name' => 'box_shadow_box_hover',
+        //         'label' => __('Box Shadow', 'elemento-addons'),
+        //         'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap',
+        //         'separator' => "before",
+        //     ]
+        // );
+
+        $this->add_control(
+            'box_shadow_box_hover',
             [
-                'name' => 'box_shadow_box_hover',
-                'label' => __('Box Shadow', 'elemento-addons'),
-                'selector' => '{{WRAPPER}} .elemento-product-simple-inner-wrap',
-                'separator' => "before",
+                'label'     => __('Box Shadow Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => "#4b58ff40",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-outer-wrap:hover .elemento-product-simple-inner-wrap,{{WRAPPER}} .elemento-product-outer-wrap:hover .elemento-product-simple-inner-bottom' => 'color: {{VALUE}};',
+                ],
             ]
         );
+
         $this->end_controls_tab();
         $this->end_controls_tabs();
 
