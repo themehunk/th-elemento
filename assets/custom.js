@@ -121,17 +121,22 @@
       // add div over lay in body
       let htmlBody = $("body");
       // add div over lay in body
+
+
       if (productId) {
+        // console.log('elemento_simple_url.admin_ajax',elemento_simple_url.admin_ajax);
+
         $.ajax({
-          method: "POST",
+          method: "post",
           url: elemento_simple_url.admin_ajax,
           data: {
-            action: "elemento_quick_view_product",
+            action: "elemento_quick_view_product_simple",
             product_id: productId,
           },
-          // dataType: "html",
+          // dataType: "JSON",
           success: function (data) {
             // console.log("data->", data);
+            // return;
             htmlBody.append('<div class="elemento_quick_view_model"></div>');
             $(".elemento_quick_view_model").html(data);
             $(".elemento-quickview-wrapper").addClass("active");
@@ -208,16 +213,6 @@
 
             element_.removeClass("hovered");
             container_.find(".owl-stage-outer").removeClass("stage-hovered");
-            // let checkAnotherItem = container_.find("hovered").length;
-            // setTimeout(() => {
-            //   console.log("checkAnotherItem-", checkAnotherItem);
-
-            //   if (!checkAnotherItem) {
-            //     container_
-            //       .find(".owl-stage-outer")
-            //       .removeClass("stage-hovered");
-            //   }
-            // }, 600);
           },
         },
         ".ea-simple-product-slider .elemento-product-outer-wrap"

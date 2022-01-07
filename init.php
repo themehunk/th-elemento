@@ -10,19 +10,20 @@
 define('SIMPLE_ADDON_URL', plugin_dir_url(__FILE__));
 define('SIMPLE_ADDON_PATH', plugin_dir_path(__FILE__));
 
-// return;
-
 class ElementoSimpleAddon
 {
     function __construct()
     {
         add_action('elementor/frontend/after_enqueue_styles', [$this, 'style_enque']);
         add_action('elementor/frontend/after_register_scripts', [$this, 'widget_scripts']);
+
+        add_action('admin_enqueue_scripts', [$this, 'simple_elemento_addons_script']);
+        add_action('wp_enqueue_scripts', [$this, 'simple_elemento_addons_script']);
     }
 
     public function style_enque()
     {
-       
+
         wp_register_style('owl-carousel-css', SIMPLE_ADDON_URL . 'assets/owl-slider/owl.carousel.css');
         wp_register_style('owl-carousel-css-green', SIMPLE_ADDON_URL . 'assets/owl-slider/owl.theme.green.min.css');
         wp_register_style('elemento-addons-simple', SIMPLE_ADDON_URL . 'assets/style.css');
@@ -35,16 +36,24 @@ class ElementoSimpleAddon
     {
         wp_register_script('owl-carousel', SIMPLE_ADDON_URL . 'assets/owl-slider/owl.carousel.min.js', array('jquery'), '', true);
         wp_register_script('owl-carousel-script-simple', SIMPLE_ADDON_URL . 'assets/owl-slider/owl-slider-script.js', [], '', true);
-        wp_register_script('simple-addon-secript', SIMPLE_ADDON_URL . 'assets/custom.js', [], '', true);
+        // wp_register_script('simple-addon-secript', SIMPLE_ADDON_URL . 'assets/custom.js', [], '', true);
         wp_enqueue_script('owl-carousel');
         wp_enqueue_script('owl-carousel-script-simple');
-        wp_enqueue_script('simple-addon-secript');
-        wp_localize_script('simple-addon-secript', 'elemento_simple_url', array('admin_ajax' => admin_url('admin-ajax.php')));
+        // wp_enqueue_script('simple-addon-secript');
+        // wp_localize_script('simple-addon-secript', 'elemento_simple_url', array('admin_ajax' => admin_url('admin-ajax.php')));
 
         // elite addons 
     }
+
+
+    public function simple_elemento_addons_script()
+    {
+        wp_enqueue_script('simple-addon-secript', SIMPLE_ADDON_URL . 'assets/custom.js', ['jquery'], '', true);
+        wp_localize_script('simple-addon-secript', 'elemento_simple_url', array('admin_ajax' => admin_url('admin-ajax.php')));
+    }
 }
 $ElementoSimpleAddonobj = new ElementoSimpleAddon();
+include_once SIMPLE_ADDON_PATH . 'product-simple-addon/ajx.php';
 
 // category register
 if (!function_exists('product_shop_add_category')) {
@@ -72,7 +81,6 @@ if (!function_exists('elemento_addons_simple_addons')) {
     add_action('elementor/widgets/widgets_registered', 'elemento_addons_simple_addons');
 }
 // ajx fn 
-include_once 'elemento-simple-post/ajx.php';
 
 // wishlist 
 if (!function_exists('elemento_addons_wishlist_wpc')) {

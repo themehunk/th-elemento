@@ -1,12 +1,16 @@
 <?php
-if (!function_exists('elemento_quick_view_product')) {
-    add_action('wp_ajax_elemento_quick_view_product', 'elemento_quick_view_product');
-    add_action('wp_ajax_nopriv_elemento_quick_view_product', 'elemento_quick_view_product');
-    function elemento_quick_view_product()
+class simple_elemento_addon
+{
+    function __construct()
+    {
+        add_action('wp_ajax_elemento_quick_view_product_simple', [$this, 'elemento_quick_view_product_simple_']);
+        add_action('wp_ajax_nopriv_elemento_quick_view_product_simple', [$this, 'elemento_quick_view_product_simple_']);
+    }
+    function elemento_quick_view_product_simple_()
     {
         if (isset($_POST['product_id']) && intval($_POST['product_id'])) {
             $product_id = intval($_POST['product_id']);
-            echo getQuickViewHtml($product_id);
+            echo $this->getQuickViewHtml($product_id);
         }
         wp_die();
     }
@@ -53,7 +57,7 @@ if (!function_exists('elemento_quick_view_product')) {
     function getQuickViewHtml($product_id)
     {
         $product = wc_get_product($product_id);
-        $addToCArt = elemento_add_tocart($product, 'quickview');
+        $addToCArt = $this->elemento_add_tocart($product, 'quickview');
         // $productLink = get_permalink($productId);
         $regularPrice = $product->get_regular_price();
         $currentPrice = $product->get_price();
@@ -108,8 +112,8 @@ if (!function_exists('elemento_quick_view_product')) {
         }
 
         $ps_sale = $checkSale ? '<div class="elemento-addons-sale">
-                    <span class="elemento-addons-sale-tag">Sale</span>
-                </div>' : "";
+                        <span class="elemento-addons-sale-tag">Sale</span>
+                    </div>' : "";
         $html =  '';
         $html .= '<div class="elemento-quickview-wrapper">';
         $html .= '<div>';
@@ -158,3 +162,4 @@ if (!function_exists('elemento_quick_view_product')) {
         // print_r($product);
     }
 }
+new simple_elemento_addon();

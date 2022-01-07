@@ -170,8 +170,8 @@ class Th_Simple_Post_filter
         // add to cart --------------
         $addToCart = '';
         $textAddTocart = $options['add_to_cart_text'] !== '' && $options['add_to_cart_text'] ? $options['add_to_cart_text'] : false;
-        // $iconAddTocart = $options['add_to_cart_icon_on'] == 'on' && $options['add_to_cart_icon_on'] ? true : false;
-        $addToCart = $this->elemento_add_tocart($product, $textAddTocart);
+        $iconAddTocart = $options['add_to_cart_icon_on'] == 'on' && $options['add_to_cart_icon_on'] ? true : false;
+        $addToCart = $this->elemento_add_tocart($product, $textAddTocart, $iconAddTocart);
         // quick view --------------
         // price --------------
         $price = '<span class="elemento-addons-price">' . $currentPricehtml . '</span>';
@@ -216,15 +216,15 @@ class Th_Simple_Post_filter
 
         return $productHtml;
     }
-    function  elemento_add_tocart($product,  $text)
+    function  elemento_add_tocart($product,  $text, $icon)
     {
         $text =  $text ? "<span class='add-to-cart-text'>" .  $text . "</span>" : '';
-        // $icon = $iconAddTocart ? '<span class="dashicons dashicons-cart"></span>' : '';
+        $icon_ = $icon ? '<span class="dashicons dashicons-cart"></span>' : '';
 
         $cart_url =  apply_filters(
             'woocommerce_loop_add_to_cart_link',
             sprintf(
-                '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="elemento-add-to-cart-btn %s %s">' . $text . '</a>',
+                '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="elemento-add-to-cart-btn %s %s">' . $icon_ . $text . '</a>',
                 esc_url($product->add_to_cart_url()),
                 esc_attr($product->get_id()),
                 esc_attr($product->get_sku()),
