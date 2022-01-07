@@ -36,11 +36,134 @@ class elementoProductSimple extends Widget_Base
         $this->titleStyle();
         $this->priceStyle();
         $this->product_sale_style();
+        $this->product_quick_view_style();
         $this->ratingStyle();
         $this->cartButton();
     }
     // content general controlls register 
-
+    protected function product_quick_view_style()
+    {
+        $this->start_controls_section(
+            'quick_view_style',
+            [
+                'label' => __('Quick View', 'elemento-addons'),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        // quick view color ---------------------------------+++++++++++++++++
+        $this->add_control(
+            'quick_viewsection_preview',
+            [
+                'label'        => __('Preview', 'elemento-addons'),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __('Yes', 'elemento-addons'),
+                'label_off'    => __('No', 'elemento-addons'),
+                'return_value' => 'on',
+                'default'      => '',
+                'prefix_class' => 'elemento-simple-product-preview-2',
+                'description' => __('This is only for backend Preview on hover Items.', 'elemento-addons'),
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'quickview_typography',
+                'selector' => '{{WRAPPER}} .elemento-product-outer-wrap a.elemento-addons-quickview-simple',
+                'fields_options' => [
+                    'font_size' => [
+                        'default' => [
+                            'unit' => 'px',
+                            'size' => '13',
+                        ],
+                    ],
+                    'letter_spacing' => [
+                        'default' => [
+                            'unit' => 'px',
+                            'size' => '0.5',
+                        ],
+                    ],
+                ],
+            ]
+        );
+        $this->start_controls_tabs('tabs_quickview_style');
+        $this->start_controls_tab(
+            'tabs_quickview_style_normal',
+            [
+                'label'     => __('Normal', 'elemento-addons'),
+            ]
+        );
+        
+        $this->add_control(
+            'quickview_btn',
+            [
+                'label'     => __('Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "white",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-outer-wrap a.elemento-addons-quickview-simple' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'quickview_btn_bg',
+            [
+                'label'     => __('Background Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "#2d59f7",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-outer-wrap a.elemento-addons-quickview-simple' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->end_controls_tab();
+        $this->start_controls_tab(
+            'tabs_quickview_style_hover',
+            [
+                'label'     => __('Hover', 'elemento-addons'),
+            ]
+        );
+        $this->add_control(
+            'quickview_btn_hover',
+            [
+                'label'     => __('Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "white",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-outer-wrap a.elemento-addons-quickview-simple:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'quickview_btn_bg_hover',
+            [
+                'label'     => __('background Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "#2d59f7",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-product-outer-wrap a.elemento-addons-quickview-simple:hover' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+        $this->end_controls_section();
+    }
     protected function productSetting()
     {
         $this->start_controls_section(
@@ -301,6 +424,7 @@ class elementoProductSimple extends Widget_Base
                 ],
                 'selectors'  => [
                     '{{WRAPPER}} .ea-simple-product-slider .item' => 'padding : 0 {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .ea-simple-product-slider .elemento-product-outer-wrap + .elemento-product-outer-wrap' => 'margin-top :{{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -651,6 +775,22 @@ class elementoProductSimple extends Widget_Base
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
+
+
+        $this->add_control(
+            'section_preview',
+            [
+                'label'        => __('Preview', 'elemento-addons'),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __('Yes', 'elemento-addons'),
+                'label_off'    => __('No', 'elemento-addons'),
+                'return_value' => 'on',
+                'default'      => '',
+                'prefix_class' => 'elemento-simple-product-preview',
+                'description' => __('This is only for backend Preview on hover Items.', 'elemento-addons'),
+            ]
+        );
+
         $this->add_control(
             'add_to_cart_icon_on',
             [
@@ -752,9 +892,9 @@ class elementoProductSimple extends Widget_Base
                 ],
                 'default' => [
                     'top' => 6,
-                    'right' => 6,
+                    'right' => 60,
                     'bottom' => 6,
-                    'left' => 6,
+                    'left' => 60,
                     'unit' => 'px',
                     'isLinked' => true,
                 ]
@@ -886,6 +1026,7 @@ class elementoProductSimple extends Widget_Base
         $this->end_controls_section();
     }
 
+
     protected function product_sale_style()
     {
         $this->start_controls_section(
@@ -969,3 +1110,6 @@ class elementoProductSimple extends Widget_Base
 }
 
 Elementor\Plugin::instance()->widgets_manager->register_widget_type(new elementoProductSimple());
+
+
+// Cannot validate since a PHP installation could not be found. Use the setting 'php.validate.executablePath' to configure the PHP executable.

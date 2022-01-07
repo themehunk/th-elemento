@@ -1,4 +1,26 @@
 @charset "UTF-8";
+.elemento-simple-product-previewon .ea-simple-product-slider .owl-stage-outer, .elemento-simple-product-preview-2on .ea-simple-product-slider .owl-stage-outer {
+  margin: -15px 0px -100px;
+  padding: 15px 0px 100px;
+}
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple {
+  opacity: 1;
+}
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  border-top: none !important;
+  padding-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-width: 0px !important;
+}
+
 .ea-simple-product-slider {
   padding: 10px 0;
 }
@@ -64,6 +86,7 @@
   visibility: hidden;
   box-shadow: 0 0 15px;
   color: #4b58ff40;
+  z-index: 100;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom:before {
   position: absolute;
@@ -152,7 +175,6 @@
   line-height: 1;
   padding: 6px 18px;
   border-radius: 5px;
-  width: 95%;
   text-decoration: none;
   font-weight: 700;
   justify-content: center;
@@ -202,14 +224,14 @@
   letter-spacing: 1px;
   text-decoration: none;
   text-align: center;
-  z-index: 1;
+  z-index: 1000;
   position: relative;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-price {
   font-weight: 600;
   line-height: 1;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-price del {
   margin-right: 0.5rem;
@@ -281,6 +303,8 @@
 
 .elemento-addons-rating {
   display: flex;
+  position: relative;
+  z-index: 1000;
 }
 .elemento-addons-rating .star-rating {
   float: unset;
