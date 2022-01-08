@@ -799,7 +799,7 @@ class elementoProductSimple extends Widget_Base
                 'label_on'     => __('Yes', 'elemento-addons'),
                 'label_off'    => __('No', 'elemento-addons'),
                 'return_value' => 'on',
-                'default'      => 'on',
+                'default'      => '',
             ]
         );
         $this->add_control(
