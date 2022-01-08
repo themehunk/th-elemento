@@ -92,7 +92,7 @@ class elementoProductSimple extends Widget_Base
                 'label'     => __('Normal', 'elemento-addons'),
             ]
         );
-        
+
         $this->add_control(
             'quickview_btn',
             [
@@ -424,7 +424,30 @@ class elementoProductSimple extends Widget_Base
                 ],
                 'selectors'  => [
                     '{{WRAPPER}} .ea-simple-product-slider .item' => 'padding : 0 {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+        $this->add_responsive_control(
+            'container_margin_slide_row',
+            [
+                'label'     => __('Row Spacing', 'elemento-addons'),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors'  => [
                     '{{WRAPPER}} .ea-simple-product-slider .elemento-product-outer-wrap + .elemento-product-outer-wrap' => 'margin-top :{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'number_of_row' => 2
                 ]
             ]
         );
