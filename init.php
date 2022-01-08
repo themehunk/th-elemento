@@ -10,6 +10,13 @@
 define('SIMPLE_ADDON_URL', plugin_dir_url(__FILE__));
 define('SIMPLE_ADDON_PATH', plugin_dir_path(__FILE__));
 
+// if (!function_exists('th_elemento_addon_quickView_enable')) {
+//     function th_elemento_addon_quickView_enable()
+//     {
+//         return true;
+//     }
+// }
+
 class ElementoSimpleAddon
 {
     function __construct()
