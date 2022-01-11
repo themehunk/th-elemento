@@ -713,6 +713,25 @@ class elementoPostSimple extends Widget_Base
                 ],
             ]
         );
+
+        $this->add_control(
+            'readMore_padding',
+            [
+                'label' => __('Padding', 'elemento-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-post-content .elemento-post-read-more' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'top' => 0,
+                'right' => 0,
+                'bottom' => 0,
+                'left' => 0,
+                'unit' => 'px',
+                'isLinked' => true,
+            ]
+        );
+
         // normal and hover 
         $this->start_controls_tabs('readmore_style_');
         $this->start_controls_tab(
@@ -737,21 +756,21 @@ class elementoPostSimple extends Widget_Base
                 ],
             ]
         );
-        // $this->add_control(
-        //     'readmore_bg_color',
-        //     [
-        //         'label'     => __('Background Color', 'elemento-addons'),
-        //         'type'      => Controls_Manager::COLOR,
-        //         "default"   => "#00800000",
-        //         'scheme'    => [
-        //             'type'  => Scheme_Color::get_type(),
-        //             'value' => Scheme_Color::COLOR_1,
-        //         ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .elemento-post-content .elemento-post-read-more' => 'background-color: {{VALUE}};',
-        //         ],
-        //     ]
-        // );
+        $this->add_control(
+            'readmore_bg_color',
+            [
+                'label'     => __('Background Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "transparent",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-post-content .elemento-post-read-more' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
         $this->end_controls_tab();
         $this->start_controls_tab(
             'readmore_style_hover',
@@ -774,21 +793,21 @@ class elementoPostSimple extends Widget_Base
                 ],
             ]
         );
-        // $this->add_control(
-        //     'readmore_bg_color_hover',
-        //     [
-        //         'label'     => __('Background Color', 'elemento-addons'),
-        //         'type'      => Controls_Manager::COLOR,
-        //         // "default"   => "#00800000",
-        //         'scheme'    => [
-        //             'type'  => Scheme_Color::get_type(),
-        //             'value' => Scheme_Color::COLOR_1,
-        //         ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .elemento-post-content .elemento-post-read-more:hover' => 'background-color: {{VALUE}};',
-        //         ],
-        //     ]
-        // );
+        $this->add_control(
+            'readmore_bg_color_hover',
+            [
+                'label'     => __('Background Color', 'elemento-addons'),
+                'type'      => Controls_Manager::COLOR,
+                "default"   => "transparent",
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elemento-post-content .elemento-post-read-more:hover' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
         $this->end_controls_tab();
         $this->end_controls_tabs();
 

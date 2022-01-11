@@ -1,12 +1,15 @@
 @charset "UTF-8";
-.elemento-simple-product-previewon .ea-simple-product-slider .owl-stage-outer, .elemento-simple-product-preview-2on .ea-simple-product-slider .owl-stage-outer {
+.elemento-simple-product-previewon .ea-simple-product-slider .owl-stage-outer,
+.elemento-simple-product-preview-2on .ea-simple-product-slider .owl-stage-outer {
   margin: -15px 0px -100px;
   padding: 15px 0px 100px;
 }
-.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple {
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple,
+.elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-quickview-simple {
   opacity: 1;
 }
-.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom {
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom,
+.elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-bottom {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
@@ -15,7 +18,8 @@
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
 }
-.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap, .elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap {
+.elemento-simple-product-previewon .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap,
+.elemento-simple-product-preview-2on .ea-simple-product-slider .elemento-product-outer-wrap .elemento-product-simple-inner-wrap {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-width: 0px !important;
@@ -25,7 +29,7 @@
   padding: 10px 0;
 }
 .ea-simple-product-slider .elemento-owl-slider-common-secript .owl-dots button.owl-dot:hover span, .ea-simple-product-slider .elemento-owl-slider-common-secript .owl-dots button.owl-dot.active span {
-  background: #2d59f7;
+  background: #20c9ae;
 }
 .ea-simple-product-slider .owl-stage-outer {
   margin: -15px 0 -15px;
@@ -105,7 +109,7 @@
   top: 34%;
   left: 50%;
   transform: translateX(-50%);
-  background: #2d59f7;
+  background: #20c9ae;
   color: white;
   text-decoration: none !important;
   border-radius: 4px;
@@ -123,8 +127,7 @@
   align-items: center;
   grid-gap: 5px;
 }
-.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > a,
-.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ button {
+.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > button {
   padding: 0;
   line-height: 1;
   display: flex;
@@ -139,11 +142,10 @@
   transition: 0.3s all linear;
   font-weight: 500;
 }
-.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > a:hover,
-.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ button:hover {
+.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > button:hover {
   color: black;
 }
-.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > a.th-product-compare-btn {
+.ea-simple-product-slider .elemento-product-outer-wrap .buttons_ > button + button {
   border-left: 1px solid;
   padding-left: 5px !important;
   border-radius: 0;
@@ -170,7 +172,7 @@
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-add-to-cart-btn {
   display: flex;
   font-size: 12px;
-  color: #2d59f7;
+  color: #20c9ae;
   background-color: transparent;
   line-height: 1;
   padding: 6px 18px;
@@ -181,7 +183,7 @@
   align-items: center;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-add-to-cart-btn:hover {
-  color: #2d59f7;
+  color: #20c9ae;
   background-color: #c4c4c4;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-add-to-cart-btn.loading {
@@ -239,7 +241,7 @@
   font-weight: normal;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-price ins {
-  color: #2d59f7;
+  color: #20c9ae;
 }
 .ea-simple-product-slider .elemento-product-outer-wrap .elemento-addons-rating .star-rating {
   float: unset;

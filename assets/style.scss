@@ -1,5 +1,6 @@
 // preview
-.elemento-simple-product-previewon,.elemento-simple-product-preview-2on {
+.elemento-simple-product-previewon,
+.elemento-simple-product-preview-2on {
   .ea-simple-product-slider {
     .owl-stage-outer {
       margin: -15px 0px -100px;
@@ -33,7 +34,7 @@
   .elemento-owl-slider-common-secript .owl-dots button.owl-dot {
     &:hover span,
     &.active span {
-      background: #2d59f7;
+      background: #20c9ae;
     }
   }
   .owl-stage-outer {
@@ -141,7 +142,7 @@
       top: 34%;
       left: 50%;
       transform: translateX(-50%);
-      background: #2d59f7;
+      background: #20c9ae;
       color: white;
       text-decoration: none !important;
       border-radius: 4px;
@@ -158,8 +159,7 @@
       justify-content: center;
       align-items: center;
       grid-gap: 5px;
-      > a,
-      button {
+      > button {
         padding: 0;
         line-height: 1;
         display: flex;
@@ -176,13 +176,12 @@
         &:hover {
           color: black;
         }
+        + button {
+          border-left: 1px solid;
+          padding-left: 5px !important;
+          border-radius: 0;
+        }
       }
-      > a.th-product-compare-btn {
-        border-left: 1px solid;
-        padding-left: 5px !important;
-        border-radius: 0;
-      }
-      // woosw-btn woosw-btn-245 woosw-added
       button.woosw-btn {
         font-size: 0;
         &:before {
@@ -207,7 +206,7 @@
     .elemento-add-to-cart-btn {
       display: flex;
       font-size: 12px;
-      color: #2d59f7;
+      color: #20c9ae;
       background-color: transparent;
       line-height: 1;
       padding: 6px 18px;
@@ -218,7 +217,7 @@
       justify-content: center;
       align-items: center;
       &:hover {
-        color: #2d59f7;
+        color: #20c9ae;
         background-color: #c4c4c4;
       }
 
@@ -280,7 +279,7 @@
         font-weight: normal;
       }
       ins {
-        color: #2d59f7;
+        color: #20c9ae;
       }
     }
     .elemento-addons-rating {

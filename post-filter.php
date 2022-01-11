@@ -132,6 +132,7 @@ class Th_Simple_Post_filter
                     }
                     $countRow++;
                 }
+                $productHtml .= '</div>';
             } else {
                 while ($query->have_posts()) {
                     $query->the_post();

@@ -6,16 +6,16 @@
 // file path and url 
 // define('SIMPLE_ADDON_URL', TH_WISHLIST_URL.'elemento-simple-addons');
 // define('SIMPLE_ADDON_PATH', TH_WISHLIST_PATH.'elemento-simple-addons);
-
 define('SIMPLE_ADDON_URL', plugin_dir_url(__FILE__));
 define('SIMPLE_ADDON_PATH', plugin_dir_path(__FILE__));
-
-// if (!function_exists('th_elemento_addon_quickView_enable')) {
-//     function th_elemento_addon_quickView_enable()
-//     {
-//         return true;
-//     }
-// }
+// enable quick view btn 
+if (!function_exists('th_elemento_addon_quickView_enable')) {
+    function th_elemento_addon_quickView_enable()
+    {
+        return true;
+    }
+}
+// enable quick view btn 
 
 class ElementoSimpleAddon
 {
@@ -93,9 +93,8 @@ if (!function_exists('elemento_addons_simple_addons')) {
 if (!function_exists('elemento_addons_wishlist_wpc')) {
     function elemento_addons_wishlist_wpc($productId)
     {
-        if (intval($productId) && shortcode_exists('yith_wcwl_add_to_wishlist')) {
+        if (intval($productId) && shortcode_exists('woosw')) {
             $html = '';
-            // $html .= do_shortcode('[yith_wcwl_add_to_wishlist product_id="' . $productId . '" already_in_wishslist_text="<span>' . __('added', 'th-elemento') . '</span>"]');
             $html .= do_shortcode('[woosw id="' . $productId . '"]');
             return $html;
         }
@@ -106,10 +105,10 @@ if (!function_exists('elemento_addons_compare')) {
     function elemento_addons_compare($productId)
     {
         if (intval($productId) && shortcode_exists('th_compare')) {
-            $html = '<a href="#" class="th-product-compare-btn button" data-th-product-id="' . $productId . '">';
+            $html = '<button class="th-product-compare-btn button" data-th-product-id="' . $productId . '">';
             $html .= '<i class="fa fa-exchange"></i>';
             $html .= '<span>' . __('Compare', 'th-elemento') . '</span>';
-            $html .= '</a>';
+            $html .= '</button>';
             return $html;
         }
     }
