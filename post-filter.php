@@ -132,6 +132,7 @@ class Th_Simple_Post_filter
                     }
                     $countRow++;
                 }
+                $productHtml .= '</div>';
             } else {
                 while ($query->have_posts()) {
                     $query->the_post();
@@ -189,7 +190,9 @@ class Th_Simple_Post_filter
 
         $productHtml = '<div class="elemento-product-simple-inner-wrap">'; //inner rap
         // quick view 
-        $productHtml .= '<a href="#" data-product="' . $productId . '" class="elemento-addons-quickview-simple">' . __('Quick View') . '</a>';
+        if (function_exists('th_elemento_addon_quickView_enable')) {
+            $productHtml .= '<a href="#" data-product="' . $productId . '" class="elemento-addons-quickview-simple">' . __('Quick View') . '</a>';
+        }
         $productHtml .= $ps_sale;
         $productHtml .= '<a class="img_" href="' . get_permalink($productId) . '" target="_blank">
                                     ' . $product->get_image() . '
