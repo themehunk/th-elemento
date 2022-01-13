@@ -446,10 +446,10 @@ class elementoProductSimple extends Widget_Base
                     'size' => 10,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .ea-simple-product-slider .elemento-product-outer-wrap + .elemento-product-outer-wrap' => 'margin-top :calc({{SIZE}}{{UNIT}} * 2);',
+                    '{{WRAPPER}} .ea-simple-product-slider .elemento-product-outer-wrap + .elemento-product-outer-wrap' => 'margin-top :{{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'number_of_row' => '2'
+                    'number_of_row' => 2
                 ]
             ]
         );
